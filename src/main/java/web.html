@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Github repositories</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+$("#boton").click(function(){
+var url = "https://api.github.com/users/aidaapadilla";
+$.get(url, function(info){
+$("#name").text(info.nombre)
+$("#description").text(info.descripcion)
+$("#followers").text(info.seguidores)
+$("#link").text(info.link);
+
+}, "json" );
+});
+});
+</script>
+
+<div class="row"> #container
+<div class="column"> #jumbotron
+<h5 class="text-center">This web page you will be able to see my repositories</h5>
+<p class="text-center">Consistirá una web donde poniendo mi nombre de usuario saldrán mis repositorios</p>
+</div>
+</div>
+</head>
+
+<body>
+<div class="row">
+<p class="text-secondary">Try to search the repositories of "aidaapadilla"</p>
+<p>Usuario del que quieres buscar sus repositorios: <input type="text" id="user"></p>
+<button type="button" class "button">Search</button>
+</div>
+
+<div class="row">
+<style>
+table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+}
+</style>
+<table class="table-striped" style="width:100%">
+<tr>
+<th><strong>Name of the repository</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Followers</strong></th>
+<th><strong>Link</strong></th>
+</tr>
+
+<tr>
+<td id="name">Entrega_WEBHTML</td>
+<td id="description">Primera web con HTML</td>
+<td id="followers">0</td>
+<td id="link">https://github.com/gabrielp6/Entrega_WebHTML</td>
+</tr>
+
+</table>
+</div>
+
+<div class="row">
+<p class="text-center">If you want more information about this user use the following link:</p>
+<p class="text-center">https://api.github.com/users/aidaapadilla</p>
+</div>
+</body>
+
+</html>
